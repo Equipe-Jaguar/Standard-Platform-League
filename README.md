@@ -1,6 +1,6 @@
 # STANDARD PLATFORM LEAGUE
 
-Repositório de códigos da categoria [Standard Platform League](https://spl.robocup.org/).
+Repositório de códigos da categoria [*Standard Platform League*](https://spl.robocup.org/).
 
 ## SOBRE A CATEGORIA
 

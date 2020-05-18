@@ -9,4 +9,4 @@ Definições:
 - Olhos esquerdo para achou a bola
 '''
 team_number = 50
-player_number
+player_number = 1

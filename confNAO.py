@@ -8,3 +8,5 @@ Definições:
 - Olhos direitos para o GameControler
 - Olhos esquerdo para achou a bola
 '''
+team_number = 50
+player_number

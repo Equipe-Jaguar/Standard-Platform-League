@@ -4,8 +4,8 @@ import qi
 from socket import *
 from construct import Container, ConstError
 from gamestate import GameState, RobotInfo, ReturnData, GAME_CONTROLLER_RESPONSE_VERSION
-import logging
-import unboard
+#import logging
+#import unboard
 import confNAO
 
 #session para poder se inscrever
@@ -30,16 +30,16 @@ def main():
             #tenta catar pacotes com o tamanho setado no game controller
             data, peer = udpSocket.recvfrom(GameState.sizeof())
 
-            logging.debug(len(data))
+            #logging.debug(len(data))
 
             #transforma dos dados puros que foram recebidos na porta para a "struct" de python.
             parsed_state = GameState.parse(data)
 
             #Checagem para a troca de lado ao trocar o tempo
-            if(int(parsed_state.teams[0].team_number) == 31):
-                unboard.teamNumber = 0
+            if(int(parsed_state.teams[0].team_number) == confNAO.team_number):
+                teamNumber = 0
             else:
-                unboard.teamNumber = 1
+                teamNumber = 1
 
             # logging.debug("packet from broadcast is :" + peer[0])
             # for structKey, structValue in thisState.iteritems():
@@ -51,13 +51,13 @@ def main():
             logging.debug("game_state : {}".format(parsed_state.game_state))
             logging.debug("first_half : {}".format(parsed_state.first_half))
             logging.debug("secsRemaining : {}".format(parsed_state.secsRemaining))
-            logging.debug("penalty : {}".format(parsed_state.teams[unboard.teamNumber].players[unboard.playerNumber].penalty))
+            logging.debug("penalty : {}".format(parsed_state.teams[teamNumber].players[confNAO.player_numbe].penalty))
 
 
             #update unboard
             unboard.gameState = parsed_state.game_state
             # print("1", unboard.gameState)
-            unboard.penalty = parsed_state.teams[unboard.teamNumber].players[unboard.playerNumber].penalty
+            unboard.penalty = parsed_state.teams[teamNumber].players[confNAO.player_numbe].penalty
 
             #dados de retorn para o GC
             data = Container(

@@ -234,14 +234,14 @@ def alinhabaixo(posx,posy):
                          alinhalado.cm(-0.046)
 
 
-
+'''
 while True:
 	i=1
 	q=1
 
 
 
-    '''
+    
 	while True:
 		if i>1:
 			break

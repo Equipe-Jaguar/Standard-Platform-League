@@ -1,6 +1,6 @@
 #ip_addr = "10.6.6.38" #ip do robo
 #se for rodar no robo o ip e:
-ip_addr = "127.0.0.1"
+ip_addr = "127.0.0.1" #ip local, quando roda no robo
 port_num = 9559
 
 #'''
